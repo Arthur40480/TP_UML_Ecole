@@ -6,13 +6,14 @@ public class Person {
 	private String name;
 	private String lastName;
 	private int age;
-//	private Adress adress; 		<-- A venir !
+	private Adress adress;	
 	
 	// Constructeurs :
-	public Person(String name, String lastName, int age) {
+	public Person(String name, String lastName, int age, Adress adress) {
 		setName(name);
 		setLastName(lastName);
 		setAge(age);
+		this.adress = adress;
 	}
 	
 	// Méthodes :
@@ -21,21 +22,30 @@ public class Person {
 	}
 	
 	// Accesseurs :
+	public Adress getAdress() {
+		return adress;
+	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public String getLastName() {
 		return lastName;
 	}
+	
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	
 	public int getAge() {
 		return age;
 	}
+	
 	public void setAge(int age) {
 		if(age < 0) {
 			System.out.println("L'âge d'une personne ne peut être inférieur à 0 !");
