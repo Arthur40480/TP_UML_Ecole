@@ -18,7 +18,7 @@ public class Person {
 	
 	// Méthodes :
 	public String toString() {
-		return "Nom: " + getName() + " - Prénom: " + getLastName() + " - Age: " + getAge() + "ans";
+		return "Nom: " + getLastName() + " - Prénom: " + getName() + " - Age: " + getAge() + "ans - Adress: " + getAdress();
 	}
 	
 	// Accesseurs :

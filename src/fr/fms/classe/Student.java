@@ -19,7 +19,7 @@ public class Student extends Person {
 	// Méthodes :
 	@Override
 	public String toString() {
-		return "Elève: " + getName() + " " + getLastName() + " - Adress: " + getAdress() + " - Id: " + id;
+		return "Elève: " + super.toString() + " - Id: " + id;
 	}
 	
 	// Accésseurs :
