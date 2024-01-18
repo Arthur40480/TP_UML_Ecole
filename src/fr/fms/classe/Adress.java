@@ -2,25 +2,24 @@ package fr.fms.classe;
 
 public class Adress {
 	
+	// Propriétés de la classe :
 	private String street;
 	private String town;
 	private int zipCode;
 
-	//the constructor
+	// Constructeurs :
 	public Adress (String street, String town, int zipCode) {
-		
 		this.street = street;
 		this.town = town;
 		this.zipCode = zipCode;
 	}
 	
-	// display method
+	// Méthodes :
 	public String toString() {
-	
-	  return "Rue: " + street + " - Ville: " + town + " - Code postale: " + zipCode;	
+	  return street + " à " + town + " " + zipCode;	
 	}
 
-	// getters and setters 
+	// Accesseurs : 
 	public String getStreet() {
 		 return street;
 	}
@@ -33,8 +32,6 @@ public class Adress {
 		return zipCode;
 	}
 	
-	
-	// setters
 	public void setStreet(String street) {
 		this.street = street;
 	}
