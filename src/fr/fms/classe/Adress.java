@@ -5,10 +5,10 @@ public class Adress {
 	// Propriétés de la classe :
 	private String street;
 	private String town;
-	private int zipCode;
+	private String zipCode;
 
 	// Constructeurs :
-	public Adress (String street, String town, int zipCode) {
+	public Adress (String street, String town, String zipCode) {
 		this.street = street;
 		this.town = town;
 		this.zipCode = zipCode;
@@ -28,7 +28,7 @@ public class Adress {
 		return town;
 	}
 	
-	public int getZipCode() {
+	public String getZipCode() {
 		return zipCode;
 	}
 	
@@ -40,7 +40,7 @@ public class Adress {
 		this.town = town;
 	}
 	
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 }
