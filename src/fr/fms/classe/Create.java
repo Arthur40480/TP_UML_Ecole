@@ -1,37 +1,62 @@
 package fr.fms.classe;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
 
 public class Create {
 	
-	public static void CreateStudent () {
+	public static void CreateStudent(ArrayList<Student> studentList) {
 		
 		Scanner scanner = new Scanner (System.in);
 		
-		System.out.println("veuillez saisir le nom de l'étudiant : ");
-		String StudentName = scanner.next();
-		System.out.println(StudentName);
-		System.out.println("veuillez saisir le prénom de l'étudiant : ");
+		System.out.println("veuillez saisir le nom de l'ï¿½tudiant : ");
 		String StudentFirstName = scanner.next();
-		System.out.println(StudentFirstName);
+		System.out.println("veuillez saisir le prï¿½nom de l'ï¿½tudiant : ");
+		String StudentName = scanner.next();
 		
-		System.out.println("saisissez l'âge de l'étudiant :");
+		System.out.println("saisissez l'ï¿½ge de l'ï¿½tudiant :");
 		int Age = scanner.nextInt();
 		scanner.nextLine();
 		 
-		System.out.println("veuillez saisir la rue de l'étudiant :");
+		System.out.println("veuillez saisir la rue de l'ï¿½tudiant :");
 		String Street = scanner.next();
-		System.out.println("veuillez saisir la ville de l'étudiant :" );
+		scanner.nextLine();
+		System.out.println("veuillez saisir la ville de l'ï¿½tudiant :" );
 		String City = scanner.next();
-		System.out.println("Veuillez saisir le code postal de l'étudiant :" );
+		scanner.nextLine();
+		System.out.println("Veuillez saisir le code postal de l'ï¿½tudiant :" );
 		String zipCode = scanner.next();
 			
 		Student karine = new Student (StudentName, StudentFirstName, Age, new Adress (Street,City,zipCode));
-		System.out.println(karine);
+		studentList.add(karine);
 		scanner.close();
 	
 	}
+	
+	public static void createTeatcher(ArrayList<Teacher> teacherList) {
+		Scanner scanner = new Scanner (System.in);
+		System.out.println("veuillez saisir le nom du professeur : ");
+		String TeatcherFirstName = scanner.next();
+		System.out.println("veuillez saisir le prÃ©nom du professeur : ");
+		String TeatcherName = scanner.next();
+		
+		System.out.println("saisissez l'Ã¢ge du professeur :");
+		int Age = scanner.nextInt();
+		scanner.nextLine();
+		 
+		System.out.println("veuillez saisir la rue du professeur :");
+		String Street = scanner.nextLine();
+		System.out.println("veuillez saisir la ville du professeur :" );
+		String City = scanner.next();
+		scanner.nextLine();
+		System.out.println("Veuillez saisir le code postal du professeur :" );
+		String zipCode = scanner.next();
+		
+		Teacher marcial = new Teacher (TeatcherName, TeatcherFirstName, Age, new Adress(Street, City, zipCode), new Date());
+		teacherList.add(marcial);
+		scanner.close();
+		System.out.println(teacherList);
+	}
 		
 }
-
-

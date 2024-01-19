@@ -7,12 +7,12 @@ import java.util.Date;
 public class Test {
 
 	public static void main(String[] args) {
-		// Création des listes qui contiendront les données :
+		// Crï¿½ation des listes qui contiendront les donnï¿½es :
 		ArrayList<Teacher> teacherList = new ArrayList<>();
 		ArrayList<Student> studentList = new ArrayList<>();
 		ArrayList<Course> courseList = new ArrayList<>();
 		
-		// Création de données pour la présentation du programme :
+		// Crï¿½ation de donnï¿½es pour la prï¿½sentation du programme :
 		// Les enseignants :
 		Teacher martial = new Teacher("Martial", "Bret", 45, new Adress("avenue des tulipes", "Toulouse", "31000"), new Date());
 		Teacher mohamed = new Teacher("Mohamed", "El Babili", 40, new Adress("rue des fraises", "Toulouse", "31000"), new Date());
@@ -21,8 +21,8 @@ public class Test {
 		teacherList.add(mohamed);
 		teacherList.add(bernard);
 
-		// Les élèves :
-		Student max = new Student("Max", "Thirioux", 42, new Adress("square du café", "Bayonne", "64100"));
+		// Les ï¿½lï¿½ves :
+		Student max = new Student("Max", "Thirioux", 42, new Adress("square du cafï¿½", "Bayonne", "64100"));
 		Student claire = new Student("Claire", "Avila", 32, new Adress("rue des chocolatines", "Albi", "81000"));
 		Student arthur = new Student("Arthur", "Gibert", 30, new Adress("rue des artisans", "Vieux Boucau", "40480"));
 		Student francois = new Student("Francois", "Longueville", 40, new Adress("avenue des peintres", "Pau", "64445"));
@@ -46,21 +46,22 @@ public class Test {
 		
 		
 		
-		Create.CreateStudent();
+		//Create.CreateStudent(studentList);
+		Create.createTeatcher(teacherList);
 		
 		// Pour demain :
-		// Commencer le programme qui demande à l'utilisateur de créer deux élèves
-		// Ensuite, de créer un enseignant
-		// Créer un Cours
+		// Commencer le programme qui demande ï¿½ l'utilisateur de crï¿½er deux ï¿½lï¿½ves
+		// Ensuite, de crï¿½er un enseignant
+		// Crï¿½er un Cours
 		// Ajouter un enseignant au cours existant
-		// Ajouter des élèves dans la liste d'élèves du cours
+		// Ajouter des ï¿½lï¿½ves dans la liste d'ï¿½lï¿½ves du cours
 		// Afficher infos du cours
 
 	}
 	
 	public void displayMenu() {
-		System.out.println("1 - Gérer les enseignants");
-		System.out.println("2 - Gérer les élèves");
-		System.out.println("3 - Gérer les cours");
+		System.out.println("1 - Gï¿½rer les enseignants");
+		System.out.println("2 - Gï¿½rer les ï¿½lï¿½ves");
+		System.out.println("3 - Gï¿½rer les cours");
 	}
 }
