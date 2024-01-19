@@ -1,8 +1,7 @@
 package fr.fms.classe;
 
 public class Adress {
-	
-	// Propriétés de la classe :
+	// PropriÃ©tÃ©s :
 	private String street;
 	private String town;
 	private String zipCode;
@@ -14,9 +13,10 @@ public class Adress {
 		this.zipCode = zipCode;
 	}
 	
-	// Méthodes :
+	// MÃ©thodes :
+	// MÃ©thode qui renvoie une chaÃ®ne qui inclut les informations :
 	public String toString() {
-	  return street + " à " + town + " " + zipCode;	
+	  return street + " ï¿½ " + town + " " + zipCode;	
 	}
 
 	// Accesseurs : 

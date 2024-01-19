@@ -1,8 +1,7 @@
 package fr.fms.classe;
 
 public class Person {
-	
-	// Propriétés de la classe :
+	// PropriÃ©tÃ©s :
 	private String name;
 	private String lastName;
 	private int age;
@@ -16,9 +15,9 @@ public class Person {
 		this.adress = adress;
 	}
 	
-	// Méthodes :
+	// MÃ©thodes :
 	public String toString() {
-		return "Nom: " + getLastName() + " - Prénom: " + getName() + " - Age: " + getAge() + "ans - Adress: " + getAdress();
+		return "Nom: " + getLastName() + " - Prï¿½nom: " + getName() + " - Age: " + getAge() + "ans - Adress: " + getAdress();
 	}
 	
 	// Accesseurs :
@@ -48,7 +47,7 @@ public class Person {
 	
 	public void setAge(int age) {
 		if(age < 0) {
-			System.out.println("L'âge d'une personne ne peut être inférieur à 0 !");
+			System.out.println("L'ï¿½ge d'une personne ne peut ï¿½tre infï¿½rieur ï¿½ 0 !");
 			setAge(0);
 		} else {
 			this.age = age;
