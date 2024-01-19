@@ -1,37 +1,77 @@
 package fr.fms.classe;
+
+import fr.fms.test.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Course {
 
-	// Propriétés de la classe :
+	// Propriï¿½tï¿½s de la classe :
 	public String nomination;
 	public Teacher teacher;
+	public LocalDate startDate;
+	public LocalDate endDate;
 	public ArrayList<Student> studentList;
 
 	// Constructeurs :
-	public Course (String nomination, Teacher teacher) {
+	public Course (String nomination, Teacher teacher, LocalDate startDate, LocalDate endDate) {
 		this.nomination = nomination;
 		this.teacher = teacher;
+		this.startDate = startDate;
+		this.endDate = endDate;
 		this.studentList = new ArrayList<Student>();
 	}
 
-	// Méthodes :
+	// Mï¿½thodes :
 	public void displayStudent() {
 		if(studentList.size() == 0) {
-			System.out.println("Aucun élève n'assiste à ce cours !");
+			System.out.println("Aucun ï¿½lï¿½ve n'assiste ï¿½ ce cours !");
 		} else {
-			System.out.println("Les élèves qui assisteront au cours " + nomination + ": ");
+			System.out.println("Les ï¿½lï¿½ves qui assisteront au cours " + nomination + ": ");
 			for(Student student : studentList) {
 				System.out.println(student.getName() + " " + student.getLastName());
 			}
 		}
 	}
-
-	public String toString() {
-		return "Le cours " + nomination + " est encadré par " + teacher.getName() + " " + teacher.getLastName();
+	
+	public static void create(ArrayList<Student> studentList, ArrayList<Course> courseList, ArrayList<Teacher> teacherList, Scanner scanner) {
+		
+		System.out.println("Veuillez saisir la nomination du cours : ");
+		String courseNomination = scanner.next();
+		System.out.println("Veuillez saisir la date de dÃ©but :");
+		LocalDate startDate = Test.choise(scanner);
+		
+        
+        System.out.println("Veuillez saisir la date de fin :");
+        LocalDate endDate = Test.choise(scanner);
+		
+        System.out.println("Veuillez assigner un enseignant Ã  ce cours :");
+        Teacher.display(teacherList);	
+        int indiceTeacher = scanner.nextInt();
+        Teacher teacherSelected = teacherList.get(indiceTeacher - 1);
+        
+        Course course = new Course(courseNomination, teacherSelected, startDate, endDate);
+        
+        while(true) {
+            System.out.println("Veuillez renseigner les Ã©lÃ¨ves qui participeront Ã  ce cours :");
+            Student.display(studentList);
+            int indiceStudent = scanner.nextInt();
+            course.getStudentList().add(studentList.get(indiceStudent - 1));
+            System.out.println("Voulez vous ajouter un autre Ã©lÃ¨ve ? :");
+            String userResponse = scanner.next();
+            if(!userResponse.equals("oui")) {
+            	break;
+            }
+        }
+        System.out.println(course.getStudentList());
 	}
 
-	// Accésseurs :
+	public String toString() {
+		return "Le cours " + nomination + " est encadrï¿½ par " + teacher.getName() + " " + teacher.getLastName()
+				+ " qui dÃ©butera le : " + startDate + " et se terminera le : " + endDate;
+	}
+
+	// Accï¿½sseurs :
 	public String getNomination() {
 		return nomination;
 	}

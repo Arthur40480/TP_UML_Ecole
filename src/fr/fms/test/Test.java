@@ -2,11 +2,15 @@ package fr.fms.test;
 
 import fr.fms.classe.*;
 import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Test {
 
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
 		// Cr�ation des listes qui contiendront les donn�es :
 		ArrayList<Teacher> teacherList = new ArrayList<>();
 		ArrayList<Student> studentList = new ArrayList<>();
@@ -30,38 +34,27 @@ public class Test {
 		studentList.add(claire);
 		studentList.add(francois);
 		studentList.add(arthur);
-
+		
 		// Les cours :
-		Course math = new Course("UML", martial);
-		Course poo = new Course("Java Poo", mohamed);
-		Course git = new Course("Github", bernard);
-		courseList.add(math);
-		courseList.add(poo);
-		courseList.add(git);
+//		Course math = new Course("UML", martial);
+//		Course poo = new Course("Java Poo", mohamed);
+//		Course git = new Course("Github", bernard);
+//		courseList.add(math);
+//		courseList.add(poo);
+//		courseList.add(git);		
 		
-		
-		
-		
-		
-		
-		
-		
-		//Create.CreateStudent(studentList);
-		Create.createTeatcher(teacherList);
-		
-		// Pour demain :
-		// Commencer le programme qui demande � l'utilisateur de cr�er deux �l�ves
-		// Ensuite, de cr�er un enseignant
-		// Cr�er un Cours
-		// Ajouter un enseignant au cours existant
-		// Ajouter des �l�ves dans la liste d'�l�ves du cours
-		// Afficher infos du cours
-
+		//Create.CreateStudent(studentList, scanner);
+		//Create.createTeatcher(teacherList, scanner);
+		Course.create(studentList, courseList, teacherList, scanner);
 	}
 	
-	public void displayMenu() {
-		System.out.println("1 - G�rer les enseignants");
-		System.out.println("2 - G�rer les �l�ves");
-		System.out.println("3 - G�rer les cours");
+	public static LocalDate choise(Scanner scanner) {
+		System.out.println("Jour");
+		int jour = scanner.nextInt();
+		System.out.println("Mois");
+		int mois = scanner.nextInt();
+		System.out.println("Année");
+		int annee = scanner.nextInt();
+		return LocalDate.of(annee, mois, jour);
 	}
 }

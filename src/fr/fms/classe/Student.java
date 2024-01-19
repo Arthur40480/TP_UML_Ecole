@@ -1,8 +1,11 @@
 package fr.fms.classe;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Student extends Person {
 	
-	// Propriétés de la classe :
+	// Propriï¿½tï¿½s de la classe :
 	private int id;
 	private static int numberInstance = 0;
 	
@@ -16,13 +19,44 @@ public class Student extends Person {
 		this.id = numberInstance;
 	}
 	
-	// Méthodes :
+	// Mï¿½thodes :
 	@Override
 	public String toString() {
-		return "Elève: " + super.toString() + " - Id: " + id;
+		return "Elï¿½ve: " + super.toString() + " - Id: " + id;
 	}
 	
-	// Accésseurs :
+	public static void create(ArrayList<Student> studentList, Scanner scanner) {
+		
+		System.out.println("veuillez saisir le nom de l'ï¿½tudiant : ");
+		String StudentFirstName = scanner.next();
+		System.out.println("veuillez saisir le prï¿½nom de l'ï¿½tudiant : ");
+		String StudentName = scanner.next();
+		
+		System.out.println("saisissez l'ï¿½ge de l'ï¿½tudiant :");
+		int Age = scanner.nextInt();
+		scanner.nextLine();
+		 
+		System.out.println("veuillez saisir la rue de l'ï¿½tudiant :");
+		String Street = scanner.next();
+		scanner.nextLine();
+		System.out.println("veuillez saisir la ville de l'ï¿½tudiant :" );
+		String City = scanner.next();
+		scanner.nextLine();
+		System.out.println("Veuillez saisir le code postal de l'Ã©tudiant :" );
+		String zipCode = scanner.next();
+			
+		Student karine = new Student (StudentName, StudentFirstName, Age, new Adress (Street,City,zipCode));
+		studentList.add(karine);
+	
+	}
+	
+	public static void display(ArrayList<Student> studentList) {		
+		for(int i = 0; i < studentList.size(); i++) {
+			System.out.println(i + 1 + " " + studentList.get(i).getName() + " " + studentList.get(i).getLastName());
+		}
+	}
+	
+	// Accï¿½sseurs :
 	public int getId() {
 		return id;
 	}
