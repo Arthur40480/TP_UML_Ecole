@@ -65,7 +65,6 @@ public class Course {
             	break;
             }
         }
-        System.out.println(course.getStudentList());
 	}
 	
 	// Méthode qui renvoie une chaîne qui inclut les informations :

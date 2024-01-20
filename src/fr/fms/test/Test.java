@@ -35,9 +35,7 @@ public class Test {
 		studentList.add(francois);
 		studentList.add(arthur);
 				
-		Student.create(studentList, scanner);
-		Teacher.create(teacherList, scanner);
-		Course.create(studentList, courseList, teacherList, scanner);
+		displayMenu();
 	}
 	
 	// Méthode qui permet de créer une date :
@@ -52,5 +50,14 @@ public class Test {
 		System.out.println("Année");
 		int annee = scanner.nextInt();
 		return LocalDate.of(annee, mois, jour);
+	}
+	// Méthode qui permet d'afficher le menu
+	public static void displayMenu() {
+		System.out.println("1 - Gérer les élèves");
+		System.out.println("2 - Gérer les enseignant");
+		System.out.println("3 - Gérer les cours");
+		System.out.println("4 - Quitter l'application");
+		System.out.println();
+		System.out.print("Veuillez saisir le numéro correspondant à votre choix :");
 	}
 }
