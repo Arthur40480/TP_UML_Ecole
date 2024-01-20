@@ -41,7 +41,6 @@ public class Student extends Person {
 					break;
 				case 2:
 					create(studentList, scanner);
-					System.out.println("Bye !");
 					break;
 				case 3:
 					delete(studentList, scanner);
@@ -106,7 +105,7 @@ public class Student extends Person {
 			
 		} else {
 			for(int i = 0; i < studentList.size(); i++) {
-				System.out.println(i + 1 + " - " + studentList.get(i).getName() + " " + studentList.get(i).getLastName()
+				System.out.println("Id :" + i + 1 + " - " + studentList.get(i).getName() + " " + studentList.get(i).getLastName()
 									+ ", " + studentList.get(i).getAge() + "ans, habitant " + studentList.get(i).getAdress().getStreet() 
 									+ " à " + studentList.get(i).getAdress().getTown() + " " + studentList.get(i).getAdress().getZipCode());
 			}
