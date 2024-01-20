@@ -34,8 +34,25 @@ public class Test {
 		studentList.add(claire);
 		studentList.add(francois);
 		studentList.add(arthur);
-				
-		displayMenu();
+		
+		// Les cours :
+		Course uml = new Course("UML", martial, LocalDate.of(1994,11,05), LocalDate.of(1994,11,07));
+		Course poo = new Course("Java Poo", mohamed, LocalDate.of(1995,03,24), LocalDate.of(1995,03,27));
+		Course git = new Course("Github", bernard, LocalDate.of(1993,05,21), LocalDate.of(1993,05,22));
+		courseList.add(uml);
+		courseList.add(poo);
+		courseList.add(git);
+		
+		// On ajoute des élèves dans la liste des cours :
+		uml.getStudentList().add(claire);
+		uml.getStudentList().add(max);
+		poo.getStudentList().add(arthur);
+		poo.getStudentList().add(francois);
+		git.getStudentList().add(claire);
+		git.getStudentList().add(francois);
+		
+		Course.menu(studentList, courseList, teacherList, scanner);
+
 	}
 	
 	// Méthode qui permet de créer une date :
@@ -51,6 +68,7 @@ public class Test {
 		int annee = scanner.nextInt();
 		return LocalDate.of(annee, mois, jour);
 	}
+	
 	// Méthode qui permet d'afficher le menu
 	public static void displayMenu() {
 		System.out.println("1 - Gérer les élèves");
