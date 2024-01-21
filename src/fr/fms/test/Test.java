@@ -51,7 +51,7 @@ public class Test {
 		git.getStudentList().add(claire);
 		git.getStudentList().add(francois);
 		
-		Course.menu(studentList, courseList, teacherList, scanner);
+		displayMenu(studentList, teacherList, courseList, scanner);
 
 	}
 	
@@ -70,12 +70,30 @@ public class Test {
 	}
 	
 	// Méthode qui permet d'afficher le menu
-	public static void displayMenu() {
+	public static void displayMenu(ArrayList<Student> studentList, ArrayList<Teacher> teacherList, ArrayList<Course> courseList, Scanner scanner) {
+		System.out.println("---------- MENU PRINCIPALE ----------");
 		System.out.println("1 - Gérer les élèves");
 		System.out.println("2 - Gérer les enseignant");
 		System.out.println("3 - Gérer les cours");
 		System.out.println("4 - Quitter l'application");
 		System.out.println();
-		System.out.print("Veuillez saisir le numéro correspondant à votre choix :");
+		System.out.print("Veuillez saisir le numéro correspondant à votre choix : ");
+		int userChoice = scanner.nextInt();
+		System.out.println();
+		
+		switch(userChoice) {
+		case 1:
+			Student.menu(studentList, teacherList, courseList, scanner);
+			break;
+		case 2:
+			Teacher.menu(studentList, teacherList, courseList, scanner);
+			break;
+		case 3:
+			Course.menu(studentList, teacherList, courseList, scanner);
+			break;
+		case 4:
+			System.out.println("A bientôt !");
+			System.exit(0);
+		}
 	}
 }

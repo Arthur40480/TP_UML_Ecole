@@ -22,11 +22,11 @@ public class Student extends Person {
 	
 	// Méthodes :
 	// Méthode qui affiche le menu pour gérer les élèves :
-	public static void menu(ArrayList<Student> studentList, Scanner scanner) {
+	public static void menu(ArrayList<Student> studentList, ArrayList<Teacher> teacherList, ArrayList<Course> courseList, Scanner scanner) {
 		boolean exitMenu = false;
 		
 		do {
-			System.out.println("---------- Menu élèves ----------");
+			System.out.println("---------- MENU ELEVE ----------");
 			System.out.println("1 - Afficher les élèves");
 			System.out.println("2 - Ajouter un élève");
 			System.out.println("3 - Supprimer un élève");
@@ -34,6 +34,7 @@ public class Student extends Person {
 			System.out.println();
 			System.out.print("Veuillez saisir le numéro correspondant à votre choix : ");
 			int userChoice = scanner.nextInt();
+			System.out.println();
 			
 			switch(userChoice) {
 				case 1:
@@ -47,7 +48,7 @@ public class Student extends Person {
 					break;
 				case 4:
 					exitMenu = true;
-					Test.displayMenu();
+					Test.displayMenu(studentList, teacherList, courseList, scanner);
 					break;
 				default:
 					System.out.println("Choix invalide, veuillez sélectionner une option valide.");
@@ -84,6 +85,7 @@ public class Student extends Person {
 		
 		System.out.println();
 		System.out.println("L'élève " + studentName + " " + studentFirstName + " a bien été ajouté.");
+		System.out.println();
 	}
 	
 	// Méthode qui permet de supprimer un élève de la liste :
@@ -91,6 +93,7 @@ public class Student extends Person {
 		display(studentList);
 		System.out.print("Veuillez indiquer l'id de l'élève à supprimer : ");
 		int userChoice = (scanner.nextInt()) - 1;
+		System.out.println();
 		
 		System.out.println("L'élève " + studentList.get(userChoice).getName() + " " + studentList.get(userChoice).getLastName() + " a bien été supprimer.");
 		studentList.remove(userChoice);
@@ -105,7 +108,7 @@ public class Student extends Person {
 			
 		} else {
 			for(int i = 0; i < studentList.size(); i++) {
-				System.out.println("Id :" + i + 1 + " - " + studentList.get(i).getName() + " " + studentList.get(i).getLastName()
+				System.out.println(i + 1 + " - " + studentList.get(i).getName() + " " + studentList.get(i).getLastName()
 									+ ", " + studentList.get(i).getAge() + "ans, habitant " + studentList.get(i).getAdress().getStreet() 
 									+ " à " + studentList.get(i).getAdress().getTown() + " " + studentList.get(i).getAdress().getZipCode());
 			}

@@ -20,11 +20,11 @@ public class Teacher extends Person{
 	
 	// Méthode :
 	// Méthode qui affiche le menu pour gérer les élèves :
-		public static void menu(ArrayList<Teacher> teacherList, Scanner scanner) {
+		public static void menu(ArrayList<Student> studentList, ArrayList<Teacher> teacherList, ArrayList<Course> courseList, Scanner scanner) {
 			boolean exitMenu = false;
 			
 			do {
-				System.out.println("---------- Menu enseignant ----------");
+				System.out.println("---------- MENU ENSEIGNANT ----------");
 				System.out.println("1 - Afficher les enseignants");
 				System.out.println("2 - Ajouter un enseignant");
 				System.out.println("3 - Supprimer un enseignant");
@@ -32,6 +32,7 @@ public class Teacher extends Person{
 				System.out.println();
 				System.out.print("Veuillez saisir le numéro correspondant à votre choix : ");
 				int userChoice = scanner.nextInt();
+				System.out.println();
 				
 				switch(userChoice) {
 					case 1:
@@ -45,7 +46,7 @@ public class Teacher extends Person{
 						break;
 					case 4:
 						exitMenu = true;
-						Test.displayMenu();
+						Test.displayMenu(studentList, teacherList, courseList, scanner);
 						break;
 					default:
 						System.out.println("Choix invalide, veuillez sélectionner une option valide.");
@@ -57,35 +58,40 @@ public class Teacher extends Person{
 	// Méthode qui permet de créer un Enseignant :
 	public static void create(ArrayList<Teacher> teacherList, Scanner scanner) {
 		
-		System.out.println("veuillez saisir le nom du professeur : ");
+		System.out.print("veuillez saisir le nom du professeur : ");
 		String teacherFirstName = scanner.next();
 		
-		System.out.println("veuillez saisir le prénom du professeur : ");
+		System.out.print("veuillez saisir le prénom du professeur : ");
 		String teacherName = scanner.next();
 		
-		System.out.println("saisissez l'âge du professeur :");
+		System.out.print("saisissez l'âge du professeur : ");
 		int age = scanner.nextInt();
 		scanner.nextLine();
 		 
-		System.out.println("veuillez saisir la rue du professeur :");
+		System.out.print("veuillez saisir la rue du professeur : ");
 		String street = scanner.nextLine();
 		
-		System.out.println("veuillez saisir la ville du professeur :" );
+		System.out.print("veuillez saisir la ville du professeur : ");
 		String city = scanner.next();
 		scanner.nextLine();
 		
-		System.out.println("Veuillez saisir le code postal du professeur :" );
+		System.out.print("Veuillez saisir le code postal du professeur : ");
 		String zipCode = scanner.next();
 		
 		Teacher marcial = new Teacher (teacherName, teacherFirstName, age, new Adress(street, city, zipCode), new Date());
 		teacherList.add(marcial);
+		
+		System.out.println();
+		System.out.println("L'enseignant " + teacherName + " " + teacherFirstName + " a bien été ajouté.");
+		System.out.println();
 	}
 	
 	// Méthode pour supprimer un enseignant de la liste :
 	public static void delete(ArrayList<Teacher> teacherList, Scanner scanner) {
 		display(teacherList);
-		System.out.print("Veuillez indiquer l'id de l'élève à supprimer : ");
+		System.out.print("Veuillez indiquer l'enseignant à supprimer : ");
 		int userChoice = (scanner.nextInt()) - 1;
+		System.out.println();
 		
 		System.out.println("L'enseignant " + teacherList.get(userChoice).getName() + " " + teacherList.get(userChoice).getLastName() + " a bien été supprimer.");
 		teacherList.remove(userChoice);
@@ -93,14 +99,20 @@ public class Teacher extends Person{
 	}
 	
 	// Méthode pour afficher chaque enseignant de la liste :
-	public static void display(ArrayList<Teacher> teacherList) {		
-		for(int i = 0; i < teacherList.size(); i++) {
-			System.out.println(i + 1 + " " + teacherList.get(i).getName() + " " + teacherList.get(i).getLastName()
-					+ ", " + teacherList.get(i).getAge() + "ans, habitant " + teacherList.get(i).getAdress().getStreet() 
-					+ " à " + teacherList.get(i).getAdress().getTown() + " " + teacherList.get(i).getAdress().getZipCode()
-					+ ", date d'arrivée dans l'école le " + teacherList.get(i).date );
+	public static void display(ArrayList<Teacher> teacherList) {
+		if(teacherList.size() == 0) {
+			System.out.println("Aucun enseignant enregistrer.");
+			System.out.println();
+			
+		} else {
+			for(int i = 0; i < teacherList.size(); i++) {
+				System.out.println(i + 1 + " " + teacherList.get(i).getName() + " " + teacherList.get(i).getLastName()
+						+ ", " + teacherList.get(i).getAge() + "ans, habitant " + teacherList.get(i).getAdress().getStreet() 
+						+ " à " + teacherList.get(i).getAdress().getTown() + " " + teacherList.get(i).getAdress().getZipCode()
+						+ ", date d'arrivée dans l'école le " + teacherList.get(i).date );
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 	
 	// Méthodes :
