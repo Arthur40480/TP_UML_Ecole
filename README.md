@@ -5,10 +5,17 @@ L'application simule la gestion d'une école, permettant de créer des cours, de
 Vous pouvez attribuer un professeur à un cours et ajouter une liste d'élèves à un cours.*
 
 ### Diaggrames UML
-* Diagramme de cas d'utilisation
-* Diagramme de classe
-* Diagramme de séquence
+  * Diagramme de cas d'utilisation :
+      Le diagramme de cas d'utilisation représente les interactions entre les acteurs externes et le système.
+      Les acteurs sont des entités (humaines ou non) qui interagissent avec le système.
+      Les cas d'utilisation sont des fonctionnalités ou des services offerts par le système.
   
+  * Diagramme de classe :
+      Le diagramme de classe est une représentation statique des classes d'un système, montrant leurs attributs, méthodes et les relations entre elles.
+    
+  * Diagramme de séquence
+      Le diagramme de séquence est une représentation dynamique des interactions entre les objets dans un système au fil du temps.
+    
 ### Fonctionnalités
   * Création de cours, professeurs et élèves.
   * Attribution d'un professeur à un cours.
